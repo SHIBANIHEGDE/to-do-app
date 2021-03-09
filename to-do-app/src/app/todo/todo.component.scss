@@ -1,0 +1,66 @@
+.top-header{
+    
+    position: relative;
+    height:20vh;
+    padding: 5vh 0;    
+}
+
+.to-do-list{
+  padding: 10px 0;
+
+}
+
+.addTaskHeader{
+    box-shadow: 0px 5px 17px -7px rgba(0, 0, 0, 0.75);
+    width:90%;
+    padding:20px;
+    
+}
+
+.danger-color{
+    color:#d41152;
+
+}
+
+.complete-task-checkbox{
+    background-color:#5cdf10;
+    color: #ffffff;
+
+}
+
+.edit-task-button{
+    background-color:#007bff;
+    color: #ffffff;
+
+}
+
+.delete-task-button{
+    background-color: #e03f3f;
+    color: #ffffff;
+}
+
+.complete-task-checkbox:hover{
+    opacity:0.8;
+    border: 1px solid #ffffff;
+
+}
+
+.edit-task-button:hover{
+    opacity:0.8;
+    border: 1px solid #ffffff;
+
+}
+
+.delete-task-button:hover{
+    opacity:0.8;
+    border: 1px solid #ffffff;
+}
+
+.completed{
+    background-color:#2bcc2596;
+}
+
+
+td{
+    width:25%;
+}

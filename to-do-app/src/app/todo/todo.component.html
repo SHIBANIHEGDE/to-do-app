@@ -1,0 +1,61 @@
+<section class='top-header text-center text-wrap bg-warning bg-gradient'>
+    <h1>To Do App</h1>   
+</section>
+
+<div class='container addTaskHeader'>
+    <div class="add-todo-box">
+        <form [formGroup]='createTaskForm' (ngSubmit)='createNewTask()'>
+            <h5>New Task</h5>
+            <div class="input-group mb-3">
+                <input formControlName="taskName" type="text" class="form-control" placeholder="Type a new task" aria-label="User's New Task" aria-describedby="button-addon2">
+                <input formControlName="dueDate" type="date" id="dueDate" class="form-control" name="trip-start" value="" [min]="getToday()" >
+                <button class="btn btn-primary" type="submit" id="button-addon2" [disabled]="createTaskForm.invalid">Add Task</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class='container' *ngIf='showValidationErrors'>
+    <div class="alert alert-danger" role="alert">
+            {{errorMessage}}
+    </div>
+</div>
+
+<div class='container' *ngIf='todoList.length'>
+    <div class="to-do-list table-responsive" >
+        <table class="table table-hover text-center">
+                <tbody *ngFor='let taskItem of todoList' [class.completed]='taskItem.completed'>
+                    <tr>
+                    <th scope="row"> <button class="btn btn-outline-secondary complete-task-checkbox" (click)='completeTask(taskItem)' type="button"><i class="fas fa-check"></i></button></th>
+                    <td>{{taskItem.taskName}}</td>
+                    <td>{{taskItem.dueDate}}<span *ngIf='!taskItem.dueDate'><i class="fas fa-calendar-times danger"></i></span></td>
+                    <td><button class="btn btn-outline-secondary edit-task-button" (click)="open(editmodal,taskItem)" type="button"><i class="fa fa-pencil-alt" aria-hidden="true"></i></button>&nbsp;
+                    <button class="btn btn-outline-secondary delete-task-button" (click)='deleteTask(taskItem.id)' type="button"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
+                    </tr>                   
+                </tbody>
+        </table>
+        
+    </div>
+
+</div>
+
+  <ng-template #editmodal let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Edit Task</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]='updateTaskForm' (ngSubmit)='updateTask()'>
+                <h5>New Task</h5>
+                <div class="input-group mb-3">
+                    <input formControlName="taskName" type="text" class="form-control" placeholder="Type a new task" aria-label="User's New Task" aria-describedby="button-addon2">
+                    <input formControlName="dueDate" type="date" id="start" class="form-control" name="trip-start" value="" [min]="getToday()"  >
+                    
+                    <button class="btn btn-primary" type="submit" id="button-addon2" [disabled]="updateTaskForm.invalid">Edit Task</button>
+                </div>
+        </form>
+    </div>
+  </ng-template>
+  
