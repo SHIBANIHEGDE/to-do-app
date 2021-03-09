@@ -17,7 +17,7 @@ export class DataService {
 
   //function to add a new task in the tasklist
   addTask(task:Todo){ 
-    task['id'] = this.todoList.length + 1; //create a id for the new task
+    task['id'] = Symbol('id'); //create a id for the new task
     this.todoList.push(task);
   }
 

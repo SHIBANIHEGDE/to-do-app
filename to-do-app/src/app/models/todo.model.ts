@@ -1,5 +1,6 @@
 export class Todo{
-     id?:number;
+     
+     id?:Symbol;
      taskName:string = '';
      dueDate:string = '';
      completed:boolean = false
