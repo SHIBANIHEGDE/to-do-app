@@ -1,27 +1,33 @@
-# ToDoApp
+# Task Management App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.1.
+The app is a task management tool created using Angular and Bootstrap
+
+## Functionality
+A user can perform the following functionalities
+- Create Task
+    - User can provide a task name and due date.
+- Update Task
+    - User can update the task name and due date for a particular task.   
+- Delete Task
+    - User can delete any task by clicking on delete icon.  
+- Complete Task
+    - User can mark a task as complete. Only those tasks that have not crossed its due date can be marked complete. 
+
+## Project Structure
+
+In src/app folder,
+- todo folder
+    - Contains the Todo Component that displays the task list
+- services folder
+    - Contains the Data Service used to perform CRUD operations on the task list
+- models folder
+    - Contains the class ToDo that defines the structure of a particular task.  
+
+## Tech Stack
+ - Angular 11
+ - Bootstrap
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Run `ng build` to build the project.
+Run `ng serve` to launch the tool
