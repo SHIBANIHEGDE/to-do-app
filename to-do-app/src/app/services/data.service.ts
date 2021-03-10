@@ -6,6 +6,8 @@ import { Todo } from '../models/todo.model';
 })
 export class DataService {
 
+  lastId = 0;
+
   private todoList : Todo[] = [];
 
   constructor() { }
@@ -17,7 +19,7 @@ export class DataService {
 
   //function to add a new task in the tasklist
   addTask(task:Todo){ 
-    task['id'] = Symbol('id'); //create a id for the new task
+    task['id'] = ++this.lastId; //create a id for the new task
     this.todoList.push(task);
   }
 
